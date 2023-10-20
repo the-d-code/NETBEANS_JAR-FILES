@@ -5,23 +5,24 @@ Payara_Server -> glassfish -> lib -> here place mysql-connector-java-5.0.8-bin.j
 # 2) for pool connection
 
 http://localhost:4848/common/index.jsf
-==========================================================================================
+
 from sidebar 
 in Resources -> JDBC -> JDBC Connection Pools -> New
-==========================================================================================
+
 Pool Name : exam
 Resource Type : javax.sql.DataSource
 Database Driver Vendor : MySql
-==========================================================================================
-press Next
-------------------------------------
-<br/>in Additional Properties section
 
-Add this two Proerties
+press Next
 -------------------------------------
+<br/>in Additional Properties section
+-------------------------------------
+Add this two Proerties
+
 <br/>**driver** : com.mysql.jdbc.Driver<br/>
 <br/>**driverClass** : com.mysql.jdbc.Driver
 <br/>
+-------------------------------------
 find this properties
 -------------------------------------
 <br/>**User** : PhpMyAdmin_Username
@@ -36,22 +37,26 @@ find this properties
 # 3) for jndi
 
 http://localhost:4848/common/index.jsf
-<br/>---------------------------------------
+<br/>
+
 from sidebar 
 <br/>in Resources -> JDBC -> JDBC Resources -> New
 <br/>---------------------------------------
+
 <br/>JNDI Name : jdbc/exam // exam is pool name
 <br/>Pool Name : exam
-<br/>---------------------------------------
+<br/>
+
 <br/>press OK
 
 # 4) ping
 
 http://localhost:4848/common/index.jsf
-<br/>----------------------------------------
+<br/>
 <br/>from sidebar 
 <br/>in Resources -> JDBC -> JDBC Connection Pools
-<br/>---------------------------------------
+<br/>
+
 <br/>select exam pool
-<br/>---------------------------------------
+<br/>
 <br/>press Ping
