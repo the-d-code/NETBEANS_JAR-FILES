@@ -56,3 +56,34 @@ http://localhost:4848/common/index.jsf
 <br/>select exam pool
 
 <br/>press Ping
+
+
+
+
+
+==============================================================
+ANACONDA 3 ENV SETUP COMMANDS                               
+==============================================================
+
+NUMPY  = pip uninstall -y numpy
+PANDAS = pip uninstall -y pandas
+    
+UNINSTALL = pip uninstall -y setuptools
+INSTALL   = conda install setuptools
+
+LIB = conda install numpy 
+      conda install pandas
+      conda install matlotlib
+
+==============================================================
+SPYDER START USING CMD                              
+==============================================================
+conda create -n spyder-env -c conda-forge spyder python=3.8
+conda activate spyder-env
+spyder
+spyder --new-instance
+
+==============================================================
+ORECL STOP COMMAND                              
+==============================================================
+/etc/init.d/oracle-xe stop
