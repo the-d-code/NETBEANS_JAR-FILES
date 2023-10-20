@@ -1,12 +1,18 @@
-# 1) For All Property 
+# PAYARA PING CONNECTION SETUP WITH PING CONNECTION
 
-Payara_Server -> glassfish -> lib -> here place mysql-connector-java-5.0.8-bin.jar file
+**=======================================================<BR/>
+1) CHECK JAR FILE IS THERE OR NOT ?                              
+=======================================================<BR/>**
 
-# 2) for pool connection
+Payara_Server -> glassfish -> lib -> here place all jar file in this repo <br/>
+Payara_Server -> glassfish -> domain -> domain1 -> lib -> here place all jar file in this repo 
 
+**=======================================================<BR/>
+2) Creation Of Pull Connection                            
+=======================================================<BR/>**
 http://localhost:4848/common/index.jsf
 
-from sidebar 
+**from sidebar** 
 in Resources -> JDBC -> JDBC Connection Pools -> New
 
 Pool Name : exam
@@ -15,14 +21,14 @@ Database Driver Vendor : MySql
 
 press Next
 
-<br/>in Additional Properties section
+**<br/>in Additional Properties section**
 
 Add this two Proerties
 
 <br/>driver : com.mysql.jdbc.Driver<br/>
 <br/>driverClass : com.mysql.jdbc.Driver
 
-find this properties
+**find this properties**
 
 <br/>User : PhpMyAdmin_Username
 <br/>Password : PhpMyAdmin_Password
@@ -33,11 +39,12 @@ find this properties
 
 <br/>press Finish
 
-# 3) for jndi
-
+**=======================================================<BR/>
+3) Creating JNDI Connection                             
+=======================================================<BR/>**
 http://localhost:4848/common/index.jsf
 
-from sidebar 
+**from sidebar **
 
 <br/>in Resources -> JDBC -> JDBC Resources -> New
 
@@ -46,11 +53,14 @@ from sidebar
 
 <br/>press OK
 
-# 4) ping
-
+**=======================================================<BR/>
+4) Ping Connection
+=======================================================<BR/>**
 http://localhost:4848/common/index.jsf
+
 <br/>
-<br/>from sidebar 
+**<br/>from sidebar **
+
 <br/>in Resources -> JDBC -> JDBC Connection Pools
 
 <br/>select exam pool
@@ -59,7 +69,7 @@ http://localhost:4848/common/index.jsf
 
 
 
-
+# Anaconda
 
 **=======================================================<BR/>
 ANACONDA 3 ENV SETUP COMMANDS                               
@@ -75,15 +85,15 @@ LIB = conda install numpy
       conda install pandas
       conda install matlotlib
 
-=======================================================<BR/>
+**=======================================================<BR/>
 SPYDER START USING CMD                              
-=======================================================<BR/>
-conda create -n spyder-env -c conda-forge spyder python=3.8
-conda activate spyder-env
-spyder
+=======================================================<BR/>**
+conda create -n spyder-env -c conda-forge spyder python=3.8<BR/>
+conda activate spyder-env<BR/>
+spyder<BR/>
 spyder --new-instance
 
-=======================================================<BR/>
+**=======================================================<BR/>
 ORECL STOP COMMAND                              
-=======================================================<BR/>
+=======================================================<BR/>**
 /etc/init.d/oracle-xe stop
