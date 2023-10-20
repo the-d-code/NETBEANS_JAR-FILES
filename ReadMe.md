@@ -61,9 +61,9 @@ http://localhost:4848/common/index.jsf
 
 
 
-# =======================================================<BR/>
-# ANACONDA 3 ENV SETUP COMMANDS                               
-# =======================================================<BR/>
+**=======================================================<BR/>
+ANACONDA 3 ENV SETUP COMMANDS                               
+=======================================================<BR/>**
 
 NUMPY  = pip uninstall -y numpy
 PANDAS = pip uninstall -y pandas
@@ -75,15 +75,15 @@ LIB = conda install numpy
       conda install pandas
       conda install matlotlib
 
-# =======================================================<BR/>
-# SPYDER START USING CMD                              
-# =======================================================<BR/>
+=======================================================<BR/>
+SPYDER START USING CMD                              
+=======================================================<BR/>
 conda create -n spyder-env -c conda-forge spyder python=3.8
 conda activate spyder-env
 spyder
 spyder --new-instance
 
-# =======================================================<BR/>
-# ORECL STOP COMMAND                              
-# =======================================================<BR/>
+=======================================================<BR/>
+ORECL STOP COMMAND                              
+=======================================================<BR/>
 /etc/init.d/oracle-xe stop
