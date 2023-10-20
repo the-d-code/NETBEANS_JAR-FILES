@@ -1,14 +1,14 @@
 # PAYARA PING CONNECTION SETUP WITH PING CONNECTION
 
 **=======================================================<BR/>
-1) CHECK JAR FILE IS THERE OR NOT ?                              
+1 CHECK JAR FILE IS THERE OR NOT ?<BR/>                            
 =======================================================<BR/>**
 
 Payara_Server -> glassfish -> lib -> here place all jar file in this repo <br/>
 Payara_Server -> glassfish -> domain -> domain1 -> lib -> here place all jar file in this repo 
 
 **=======================================================<BR/>
-2) Creation Of Pull Connection                            
+2) Creation Of Pull Connection<BR/>                            
 =======================================================<BR/>**
 http://localhost:4848/common/index.jsf
 
@@ -40,7 +40,7 @@ Add this two Proerties
 <br/>press Finish
 
 **=======================================================<BR/>
-3) Creating JNDI Connection                             
+3) Creating JNDI Connection<BR/>                             
 =======================================================<BR/>**
 http://localhost:4848/common/index.jsf
 
@@ -54,7 +54,7 @@ http://localhost:4848/common/index.jsf
 <br/>press OK
 
 **=======================================================<BR/>
-4) Ping Connection
+4) Ping Connection<BR/>
 =======================================================<BR/>**
 http://localhost:4848/common/index.jsf
 
