@@ -14,38 +14,35 @@ Resource Type : javax.sql.DataSource
 Database Driver Vendor : MySql
 
 press Next
--------------------------------------
+
 <br/>in Additional Properties section
--------------------------------------
+
 Add this two Proerties
 
-<br/>**driver** : com.mysql.jdbc.Driver<br/>
-<br/>**driverClass** : com.mysql.jdbc.Driver
-<br/>
--------------------------------------
+<br/>driver : com.mysql.jdbc.Driver<br/>
+<br/>driverClass : com.mysql.jdbc.Driver
+
 find this properties
--------------------------------------
-<br/>**User** : PhpMyAdmin_Username
-<br/>**Password** : PhpMyAdmin_Password
-<br/>**ServerName** : localhost
-<br/>**DatabaseName** : your_datbase_name
-<br/>**URL** : jdbc:mysql://localhost:3306/your_datbase_name
+
+<br/>User : PhpMyAdmin_Username
+<br/>Password : PhpMyAdmin_Password
+<br/>ServerName : localhost
+<br/>DatabaseName : your_datbase_name
 <br/>URL : jdbc:mysql://localhost:3306/your_datbase_name
-<br/>--------------------------------------
+<br/>URL : jdbc:mysql://localhost:3306/your_datbase_name
+
 <br/>press Finish
 
 # 3) for jndi
 
 http://localhost:4848/common/index.jsf
-<br/>
 
 from sidebar 
+
 <br/>in Resources -> JDBC -> JDBC Resources -> New
-<br/>---------------------------------------
 
 <br/>JNDI Name : jdbc/exam // exam is pool name
 <br/>Pool Name : exam
-<br/>
 
 <br/>press OK
 
@@ -55,8 +52,7 @@ http://localhost:4848/common/index.jsf
 <br/>
 <br/>from sidebar 
 <br/>in Resources -> JDBC -> JDBC Connection Pools
-<br/>
 
 <br/>select exam pool
-<br/>
+
 <br/>press Ping
