@@ -1,0 +1,123 @@
+
+Steps for 2 Miceoservices app with jwt and database ::
+=>start payara server
+=>Turn on your xampp/wamp server and create one database with tables
+=>create jdbc pool :
+Properties :
+URL = jdbc:mysql://localhost:3306/db_name?useSSL=false
+url = jdbc:mysql://localhost:3306/db_name?useSSL=false
+driverClass = com.mysql.jdbc.Driver
+driver = com.mysql.jdbc.Driver
+user = root
+password = root
+serverName = localhost
+portNumber = 3306
+=>check if mysql connector file is there in payara/glassfish/lib
+=>create jndi resource and ping jdbc pool
+=>create two projects Project from ArchType
+jakartaee8-payara-microprofile-archetype
+=> in pom.xml change maven.compiler.souce and .target => 1.8
+              change microservice version to 3.2
+=>producer project ::::
+==========================================
+=>Other Sources-> src/main/resources -> create META-INF folder in that create properties file named micrprofile-config.
+=>create persistent unit
+=>Source Packages -> create entity package ->create Entity classes from database
+JWT ::::::::::
+==================================
+run file using:: java -jar jwtenizr.jar
+change jwt-token file and again run the file
+===========================================
+Now in Producer Project in 
+Bootstrap.java => 
+@LoginConfig(authMethod="MP-JWT")
+@DeclareRoles({"admin","user"})
+
+=>Source Packages -> create package Models -> create java class DataModel.java
+write code :: 
+@PersistenceContext(unitName="testPU")
+EntityManager em;
+public Collection<Students> getStudents()
+    {
+        return em.createNamedQuery("Students.findAll").getResultList();
+    }
+
+=>copy text from microprofile-config
+and paste in microprofile-config.properties file
+=> ExampleService
+@Path("/example")
+public class ExampleService {
+@Inject DataModel dm;
+
+    @GET
+    @Path("student")
+    @RolesAllowed("admin")
+    public Collection<Students> getStudent()
+    {
+        return dm.getStudents();
+    }
+
+    @GET
+    public String get() {
+         return "Hello there";
+    }
+
+}
+
+clean and build producer app......
+in producer app pom.xml same
+then in other sources => src/main/resources => create folder META-INF in that create property microprofile-config.
+now copy token from "token" file and paste jwt-string = token
+then create package client => create Interface called =>ApiInterface and add following code ::
+@RegisterRestClient(baseUri = "http://localhost:8085/ProducerDB/rest/example")
+public interface ApiInterface {
+    
+    @ClientHeaderParam(name="authorization",value="{generateJWTToken}")
+    @GET
+    @Path("student")
+    @RolesAllowed("admin")
+    public Collection<Students> getStudent();
+    
+    default String generateJWTToken()
+    {
+        Config config = ConfigProvider.getConfig();
+        String jwt = config.getValue("jwt-string", String.class);
+        String authtoken = "Bearer "+jwt;
+        return authtoken;
+    }
+}
+copy entity folder and paste in consumer
+then create servlet called app
+in that @Inject @RestClient ApiInterface a;
+in body try
+            {
+               Collection<Students> students = a.getStudent();
+               for(Students s:students)
+               {
+                   out.println(s.getName());
+               }
+            }
+            catch(Exception e){
+                out.println("Something went wrong");
+                out.println("<br>");
+                out.println(e);
+            }
+
+clean and build consumer app
+open domain.xml =>
+change ::
+<jdbc-connection-pool
+        datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" name="testdbpool"
+        res-type="javax.sql.DataSource"
+        steady-pool-size="1"
+        is-connection-validation-required="true"
+        connection-validation-method="meta-data"
+        max-pool-size="10">
+    <property name="password" value="Priya"/>
+    <property name="user" value="root"/>
+    <property name="databaseName" value="testdb"/>
+    <property name="serverName" value="localhost"/>
+    <property name="portNumber" value="3306"/>
+<jdbc-resource pool-name="testdbpool" jndi-name="jdbc/testpool"/>
+ <server name="server" config-ref="server-config">
+

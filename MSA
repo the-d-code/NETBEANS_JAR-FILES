@@ -1,0 +1,45 @@
+1. Create new Project java with maven -> project from archetype ->search microprofile -> select (jakartaee8-payara-microprofile-archetype) -> enter project name & docker hub name
+
+2. Creating JWT Tokens have a jwtenizer.jar file in folder, locate that file in terminal ->
+
+execute command to generate JWT tokens : java -jar jwtenizer.jar -> 
+
+It will create four files . edit jwt-token.json for your upn and roles and execute jwtenizr.kar again : java -jar jwtenizer.jar ->
+
+It will create microprofile-config.properties to be used in resource/backend application and token.jwt for client/frontend application
+
+// IN BACKEND
+
+3. copy microprofile-config.properties file into META-INF
+
+4. create persistance container
+
+5. create entity from database -> (auto generated)
+
+6. create session Bean -> check local 
+
+7. in session bean local 
+
+void List<Student> getAllStudents();
+
+void addStudent(Student std);
+
+void update(student std);
+
+void deleteStudent();
+
+8. impliment all methods in session bean class
+
+write code to persist,merge,remove
+
+9. in ExampleService write REST code
+
+// IN FRONTEND
+
+10. create persistance container
+
+11. create entity from database -> (auto generated)
+
+12. Create client package/folder in source packages -> create interface for CRUD operations with path and jwt authentication
+
+13. Create Servlet and JSP pages as per requirement
