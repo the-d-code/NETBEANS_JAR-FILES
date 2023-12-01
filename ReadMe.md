@@ -75,14 +75,14 @@ http://localhost:4848/common/index.jsf
 ANACONDA 3 ENV SETUP COMMANDS                               
 =======================================================<BR/>**
 
-NUMPY  = pip uninstall -y numpy
+NUMPY  = pip uninstall -y numpy<br/>
 PANDAS = pip uninstall -y pandas
     
-UNINSTALL = pip uninstall -y setuptools
+UNINSTALL = pip uninstall -y setuptools<br/>
 INSTALL   = conda install setuptools
 
-LIB = conda install numpy 
-      conda install pandas
+LIB = conda install numpy <br/>
+      conda install pandas<br/>
       conda install matlotlib
 
 **=======================================================<BR/>
